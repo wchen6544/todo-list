@@ -45,6 +45,7 @@ struct PopoverView: View {
     }
     
     private func toggleIfDone(dd: QLLink) {
+        
         dd.done = !dd.done
         try? viewContext.save()
     }
@@ -52,7 +53,6 @@ struct PopoverView: View {
     private func deleteAll() {
 
         for value in allData {
-                        
             deleteItems(dd: value)
         }
     }
@@ -91,7 +91,7 @@ struct PopoverView: View {
             }
             
             ForEach(allData, id: \.wrappedID) { task in
-                let _ = print("hi!")
+                // let _ = print("hi!")
                 ZStack {
                     
                     RoundedRectangle(cornerRadius: 10)
