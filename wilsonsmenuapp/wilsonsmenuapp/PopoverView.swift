@@ -21,6 +21,10 @@ struct PopoverView: View {
     
     private func deleteItems(dd: QLLink) {
         
+        if !dd.done {
+            return
+        }
+        
         viewContext.delete(dd)
         try? viewContext.save()
         
@@ -48,6 +52,7 @@ struct PopoverView: View {
     private func deleteAll() {
 
         for value in allData {
+                        
             deleteItems(dd: value)
         }
     }
